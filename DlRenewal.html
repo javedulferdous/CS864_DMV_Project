@@ -3,99 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <title>DL Renewal</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <script src="node_modules/web3/dist/web3.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body background="http://www.estidia.eu/wp-content/uploads/2018/04/Savin-NY-Website-Background-Web.jpg">
+<nav class="navbar navbar-lg">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./home.html">
+                  <img src="https://www.dmv.virginia.gov/img/dmvLogo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+    <div class="table-responsive">
     <div class="container">
-        <h1>DL Renewal</h1>
+        <h1>Driver License Renewal</h1>
         <h2 id="DLRenewal"></h2>
-        <label for="name" class="col-lg-2 control-label">Driver ID</label>
-        <input id="driverid" type="text">
-        <label for="name" class="col-lg-2 control-label">Expiration Date</label>
-        <input id="expirationdate" type="text">
-        <label for="name" class="col-lg-2 control-label">Renewal Until</label>
-        <input id="newdate" type="text">
-        <button id="button">Renew</button>
+        <div class="input-group">
+        <input id="driverid" class="form-control form-control-lg" type="text" placeholder="Driver ID">
+        </div>
+        <div class="input-group">
+        <input id="expirationdate" class="form-control form-control-lg" type="text" placeholder="Expiration Date">
+        </div>
+        <div class="input-group">
+        <input id="newdate" class="form-control form-control-lg" type="text" placeholder="Renewal Until">
+        </div>
+        <div class="input-group">
+        <button id="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script>
-       // Our future code here..
-               if (typeof web3 !== 'undefined') {
-            web3 = new Web3(web3.currentProvider);
-        } else {
-            // set the provider you want from Web3.providers
-            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-        }
-        web3.eth.defaultAccount = web3.eth.accounts[0];
-        var DLRenewalContract = web3.eth.contract([
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getRenewal",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_driverId",
-                "type": "string"
-            },
-            {
-                "name": "_expirationDate",
-                "type": "string"
-            },
-            {
-                "name": "_newDate",
-                "type": "string"
-            }
-        ],
-        "name": "setRenewal",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    }
-]);
-    var DLRenewal = DLRenewalContract.at('0x64fed97cad95fd0783df4185a98404bbb0cf2f2b');
-    console.log(DLRenewal);
-
-    DLRenewal.getRenewal(function(error, result){
-            if(!error)
-                {
-                    $("#DLRenewal").html('Driver ID: '+result[0]+'  The expiration date is  '+result[1]+'  The DL is renewed until  '+result[2]);
-                    console.log(result);
-
-                }
-            else
-                console.log(error);
-        });
-        $("#button").click(function() {
-            alert("DL is renewed");
-            DLRenewal.setRenewal($("#driverid").val(), $("#expirationdate").val(), $("#newdate").val());
-            document.location.reload();
-
-        });
-    </script>
 </body>
 </html>
