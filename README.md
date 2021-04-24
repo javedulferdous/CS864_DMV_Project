@@ -1,4 +1,4 @@
-# CS864_DMV_Project
+# CS864 DMV Project
 
 **Online services**
 <ol>
