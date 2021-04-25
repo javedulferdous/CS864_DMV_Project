@@ -37,6 +37,78 @@
         <button class="btn btn-primary btn-lg btn-block" id="button">Submit</button>
         </div>
     </div>
+    <script type="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+        if (typeof web3 !== 'undefined'){
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        var AddressChangeContract = web3.eth.contract([
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_driverid",
+                "type": "string"
+            },
+            {
+                "name": "_oldadd",
+                "type": "string"
+            },
+            {
+                "name": "_newadd",
+                "type": "string"
+            }
+        ],
+        "name": "setAddress",
+        "outputs": [],
+        "payable": false,
+        "type": "function",
+        "stateMutability": "nonpayable"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getAddress",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "type": "function",
+        "stateMutability": "view"
+    }
+]);
+    var AddressChange = AddressChangeContract.at('0x5949724b3075c6fb51c0e92ff17783c9641c9ae9');
+    console.log(AddressChange);
+
+    AddressChange.getAddress(function(error, result){
+            if(!error)
+                {
+                    $("#addresschange").html('Driver ID: '+result[0]+'.  '+'The old Address is: '+result[1]+'.  '+'The new address is: '+result[2]);
+                    console.log(result);
+                }
+            else
+                console.log(error);
+        });
+        $("#button").click(function() {
+            alert("Address has been updated");
+            AddressChange.setAddress($("#driverid").val(), $("#oldadd").val(), $("#newadd").val());
+            document.location.reload();
+        });
+    </script>    
 
 </body>
 </html>

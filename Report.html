@@ -42,5 +42,88 @@
         </div>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        var ReportVehicleContract = web3.eth.contract([
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_vehicleid",
+                "type": "string"
+            },
+            {
+                "name": "_price",
+                "type": "string"
+            },
+            {
+                "name": "_reading",
+                "type": "string"
+            },
+            {
+                "name": "_transferredto",
+                "type": "string"
+            }
+        ],
+        "name": "setReport",
+        "outputs": [],
+        "payable": false,
+        "type": "function",
+        "stateMutability": "nonpayable"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getReport",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "type": "function",
+        "stateMutability": "view"
+    }
+]);
+    var ReportVehicle = ReportVehicleContract.at('0xcf5075c28a6b16d911984d2036f2a164c7e4ec25');
+    console.log(ReportVehicle);
+
+    ReportVehicle.getReport(function(error, result){
+            if(!error)
+                {
+                    $("#reportv").html(result[0]+result[1]+result[2]+result[3]);
+                    console.log(result);
+                }
+            else
+                console.log(error);
+        });
+        $("#button").click(function() {
+            alert("Vehicle sold");
+            ReportVehicle.setReport($("#vehicleid").val(), $("#price").val(), $("#reading").val(), $("#transferredto").val());
+        });
+                $("#button1").click(function() {
+            alert("Vehicle Traded");
+            ReportVehicle.setReport($("#vehicleid").val(), $("#price").val(), $("#reading").val(), $("#transferredto").val());
+        });
+    </script>
 </body>
 </html>

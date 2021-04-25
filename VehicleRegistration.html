@@ -45,5 +45,94 @@
         </div>
     </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        web3.eth.defaultAccount = web3.eth.accounts[1];
+        var VehicleContract = web3.eth.contract([
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_driverId",
+                "type": "string"
+            },
+            {
+                "name": "_vehicleNo",
+                "type": "string"
+            },
+            {
+                "name": "_Address",
+                "type": "string"
+            },
+            {
+                "name": "_expirationDate",
+                "type": "string"
+            },
+            {
+                "name": "_renewalDate",
+                "type": "string"
+            }
+        ],
+        "name": "setVehicle",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getVehicle",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+]);
+    var VehicleReg = VehicleContract.at('0xe7b14fb16a63551a6c47e45ae56762ae79160d77');
+    console.log(VehicleReg);
+
+    VehicleReg.getVehicle(function(error, result){
+            if(!error)
+                {
+                    $("#VehicleReg").html('Driver ID: '+result[0]+'  The vehicle number is  '+result[1]+'  Address: '+result[2]+'  Old date: '+result[3]+'  New active date: '+result[4]);
+                    console.log(result);
+
+                }
+            else
+                console.log(error);
+        });
+        $("#button").click(function() {
+            VehicleReg.setVehicle($("#driverid").val(), $("#vehicleNo").val(), $("#Address").val(), $("#expirationdate").val(), $("#renewaldate").val());
+            document.location.reload();
+
+        });
+    </script>
 </body>
 </html>

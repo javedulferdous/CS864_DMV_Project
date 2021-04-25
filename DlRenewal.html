@@ -38,5 +38,79 @@
         </div>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+        if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+        var DLRenewalContract = web3.eth.contract([
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getRenewal",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_driverId",
+                "type": "string"
+            },
+            {
+                "name": "_expirationDate",
+                "type": "string"
+            },
+            {
+                "name": "_newDate",
+                "type": "string"
+            }
+        ],
+        "name": "setRenewal",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]);
+    var DLRenewal = DLRenewalContract.at('0x64fed97cad95fd0783df4185a98404bbb0cf2f2b');
+    console.log(DLRenewal);
+
+    DLRenewal.getRenewal(function(error, result){
+            if(!error)
+                {
+                    $("#DLRenewal").html('Driver ID: '+result[0]+'  The expiration date is  '+result[1]+'  The DL is renewed until  '+result[2]);
+                    console.log(result);
+
+                }
+            else
+                console.log(error);
+        });
+        $("#button").click(function() {
+            alert("DL is renewed");
+            DLRenewal.setRenewal($("#driverid").val(), $("#expirationdate").val(), $("#newdate").val());
+            document.location.reload();
+
+        });
+    </script>
 </body>
 </html>
