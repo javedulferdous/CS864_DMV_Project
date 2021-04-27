@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>Driver information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body background="http://www.estidia.eu/wp-content/uploads/2018/04/Savin-NY-Website-Background-Web.jpg">
+    <nav class="navbar navbar-lg">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="./home.html">
+                  <img src="https://www.dmv.virginia.gov/img/dmvLogo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+		<h1><center>Driver information</center></h1>
+        <h2 id="vehicle"></h2>
+
+		<div class="input-group">
+		<input id="driverId" class="form-control form-control-lg" type="text" placeholder="Driver ID">
+		</div>
+
+		<div class="input-group">
+		<input id="driverName" class="form-control form-control-lg" type="text" placeholder="Driver Name">
+		</div>
+
+		<div class="input-group">
+		<input id="age" class="form-control form-control-lg" type="text" placeholder="Driver Age">
+		</div>
+
+		<div class="input-group">
+		<input id="dob" class="form-control form-control-lg" type="text" placeholder="Driver DOB">
+		</div>
+        <div class="input-group">
+		<input id="dob" class="form-control form-control-lg" type="text" placeholder="Driver City">
+		</div>
+
+        <div class="input-group">
+		<input id="city" class="form-control form-control-lg" type="text" placeholder="Driver Zipcode">
+		</div>
+
+		<div class="input-group">
+        <button id="zip" class="btn btn-primary btn-lg btn-block">Update Driver Service</button>
+		</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script>
+       if (typeof web3 !== 'undefined') {
+           web3 = new Web3(web3.currentProvider);
+       } else {
+           web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+       }
+       web3.eth.defaultAccount = web3.eth.accounts[0];
+       var VehicleService = web3.eth.contract([
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "_vehicleId",
+                "type": "string"
+            },
+            {
+                "name": "_vehicleOdometer",
+                "type": "string"
+            },
+            {
+                "name": "_vehiclePrice",
+                "type": "string"
+            },
+            {
+                "name": "_vehicleTitle",
+                "type": "string"
+            }
+        ],
+        "name": "setVehicle",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getVehicle",
+        "outputs": [
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            },
+            {
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    }
+])
+       var Vehicle = VehicleService.at('0x1e3a989e9cb93978fa2c63a0311389ffa7a8932e');
+       console.log(VehicleService);
+       Vehicle.getVehicle(function(error, result){
+         if(!error)
+            {
+                   $("#vehicle").html(result[0]+result[1]+result[2]+result[3]);
+                    console.log(result);
+                 }
+           else
+                 console.log(error);
+         });
+        $("#button").click(function() {
+               
+            Vehicle.setVehicle($("#vehicleId").val(), $("#vehicleOdometer").val(),$("#vehiclePrice").val(),$("#vehicleTitle").val());
+            document.location.reload();
+
+        });
+    </script>
+</body>
+</html>
