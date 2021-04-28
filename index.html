@@ -40,15 +40,15 @@
 		<input id="dob" class="form-control form-control-lg" type="text" placeholder="Driver DOB">
 		</div>
         <div class="input-group">
-		<input id="dob" class="form-control form-control-lg" type="text" placeholder="Driver City">
+		<input id="city" class="form-control form-control-lg" type="text" placeholder="Driver City">
 		</div>
 
         <div class="input-group">
-		<input id="city" class="form-control form-control-lg" type="text" placeholder="Driver Zipcode">
+		<input id="zip" class="form-control form-control-lg" type="text" placeholder="Driver Zipcode">
 		</div>
 
 		<div class="input-group">
-        <button id="zip" class="btn btn-primary btn-lg btn-block">Update Driver Service</button>
+        <button id="button" class="btn btn-primary btn-lg btn-block">Update Driver Service</button>
 		</div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -60,75 +60,92 @@
        }
        web3.eth.defaultAccount = web3.eth.accounts[0];
        var VehicleService = web3.eth.contract([
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_vehicleId",
-                "type": "string"
-            },
-            {
-                "name": "_vehicleOdometer",
-                "type": "string"
-            },
-            {
-                "name": "_vehiclePrice",
-                "type": "string"
-            },
-            {
-                "name": "_vehicleTitle",
-                "type": "string"
-            }
-        ],
-        "name": "setVehicle",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getVehicle",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getDIRenewalChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_driverid",
+				"type": "string"
+			},
+			{
+				"name": "_driverName",
+				"type": "string"
+			},
+			{
+				"name": "_age",
+				"type": "string"
+			},
+			{
+				"name": "_dob",
+				"type": "string"
+			},
+			{
+				"name": "_city",
+				"type": "string"
+			},
+			{
+				"name": "_zip",
+				"type": "string"
+			}
+		],
+		"name": "setDriverInformation",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ])
-       var Vehicle = VehicleService.at('0x1e3a989e9cb93978fa2c63a0311389ffa7a8932e');
-       console.log(VehicleService);
-       Vehicle.getVehicle(function(error, result){
-         if(!error)
-            {
-                   $("#vehicle").html(result[0]+result[1]+result[2]+result[3]);
-                    console.log(result);
-                 }
-           else
-                 console.log(error);
-         });
-        $("#button").click(function() {
-               
-            Vehicle.setVehicle($("#vehicleId").val(), $("#vehicleOdometer").val(),$("#vehiclePrice").val(),$("#vehicleTitle").val());
-            document.location.reload();
+       var Driver = DriverService.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
+       console.log(DriverService);
 
+	  
+
+        $("#button").click(function() {
+            Driver.setDriver($("#driverId").val(), $("#driverName").val(),$("#age").val(),$("#dob").val(),$("#city").val(),$("#zip").val());
+            //Driver.setDriver($("#name").val(), $("#age").val());
+        });
+         Driver.getDriver(function(error, result){
+            if(!error)
+                {
+                    $("#driver").html(result[0],result[1],result[2],result[3],result[4],result[5]);
+                    console.log(result);
+                }
+            else
+                console.log(error);
         });
     </script>
 </body>

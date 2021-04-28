@@ -55,52 +55,53 @@
        web3.eth.defaultAccount = web3.eth.accounts[4];
 
        var RealIDService = web3.eth.contract([
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_driverId",
-                "type": "string"
-            },
-            {
-                "name": "_address1",
-                "type": "string"
-            },
-            {
-                "name": "_address2",
-                "type": "string"
-            }
-        ],
-        "name": "setId",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getId",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }
+       
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getRealIdChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_driverid",
+				"type": "string"
+			},
+			{
+				"name": "_address1",
+				"type": "string"
+			},
+			{
+				"name": "_address2",
+				"type": "string"
+			}
+		],
+		"name": "setRealIdChange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ])
-       var Real = RealIDService.at('0x2aea3122ab54265540726d4699b20dcdf2b434d2');
+       var Real = RealIDService.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
        console.log(Real);
 
       Real.getId(function(error, result){

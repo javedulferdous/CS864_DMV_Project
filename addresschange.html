@@ -46,52 +46,53 @@
         }
         web3.eth.defaultAccount = web3.eth.accounts[0];
         var AddressChangeContract = web3.eth.contract([
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_driverid",
-                "type": "string"
-            },
-            {
-                "name": "_oldadd",
-                "type": "string"
-            },
-            {
-                "name": "_newadd",
-                "type": "string"
-            }
-        ],
-        "name": "setAddress",
-        "outputs": [],
-        "payable": false,
-        "type": "function",
-        "stateMutability": "nonpayable"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getAddress",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "type": "function",
-        "stateMutability": "view"
-    }
+    
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getAddressChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_driverid",
+				"type": "string"
+			},
+			{
+				"name": "_oldadd",
+				"type": "string"
+			},
+			{
+				"name": "_newadd",
+				"type": "string"
+			}
+		],
+		"name": "setAddressChange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ]);
-    var AddressChange = AddressChangeContract.at('0x5949724b3075c6fb51c0e92ff17783c9641c9ae9');
+    var AddressChange = AddressChangeContract.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
     console.log(AddressChange);
 
     AddressChange.getAddress(function(error, result){

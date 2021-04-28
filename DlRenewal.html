@@ -47,52 +47,53 @@
         }
         web3.eth.defaultAccount = web3.eth.accounts[0];
         var DLRenewalContract = web3.eth.contract([
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getRenewal",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_driverId",
-                "type": "string"
-            },
-            {
-                "name": "_expirationDate",
-                "type": "string"
-            },
-            {
-                "name": "_newDate",
-                "type": "string"
-            }
-        ],
-        "name": "setRenewal",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    }
+        
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_driverid",
+				"type": "string"
+			},
+			{
+				"name": "_expirationdate",
+				"type": "string"
+			},
+			{
+				"name": "_newdate",
+				"type": "string"
+			}
+		],
+		"name": "setDIRenewalChange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getDIRenewalChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
 ]);
-    var DLRenewal = DLRenewalContract.at('0x64fed97cad95fd0783df4185a98404bbb0cf2f2b');
+    var DLRenewal = DLRenewalContract.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
     console.log(DLRenewal);
 
     DLRenewal.getRenewal(function(error, result){

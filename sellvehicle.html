@@ -53,60 +53,60 @@
        }
        web3.eth.defaultAccount = web3.eth.accounts[0];
        var VehicleService = web3.eth.contract([
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_vehicleId",
-                "type": "string"
-            },
-            {
-                "name": "_vehicleOdometer",
-                "type": "string"
-            },
-            {
-                "name": "_vehiclePrice",
-                "type": "string"
-            },
-            {
-                "name": "_vehicleTitle",
-                "type": "string"
-            }
-        ],
-        "name": "setVehicle",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getVehicle",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getvehicleChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_vehicleId",
+				"type": "string"
+			},
+			{
+				"name": "_vehicleOdometer",
+				"type": "string"
+			},
+			{
+				"name": "_vehiclePrice",
+				"type": "string"
+			},
+			{
+				"name": "_vehicleTitle",
+				"type": "string"
+			}
+		],
+		"name": "setvehicleChange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ])
-       var Vehicle = VehicleService.at('0x1e3a989e9cb93978fa2c63a0311389ffa7a8932e');
+       var Vehicle = VehicleService.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
        console.log(VehicleService);
        Vehicle.getVehicle(function(error, result){
          if(!error)

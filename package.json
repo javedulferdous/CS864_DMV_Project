@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "web3": "^1.3.5"
+  },
+  "name": "test",
+  "description": "**Online services** <ol> <li>Vehicle registration renewal, </li> <li>address change, </li> <li>DL renewal, </li> <li>report a vehicle sold/traded.</li> </ol>",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javedulferdous/CS864_DMV_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javedulferdous/CS864_DMV_Project/issues"
+  },
+  "homepage": "https://github.com/javedulferdous/CS864_DMV_Project#readme"
+}

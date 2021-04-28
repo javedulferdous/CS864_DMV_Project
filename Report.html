@@ -51,60 +51,61 @@
         }
         web3.eth.defaultAccount = web3.eth.accounts[0];
         var ReportVehicleContract = web3.eth.contract([
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_vehicleid",
-                "type": "string"
-            },
-            {
-                "name": "_price",
-                "type": "string"
-            },
-            {
-                "name": "_reading",
-                "type": "string"
-            },
-            {
-                "name": "_transferredto",
-                "type": "string"
-            }
-        ],
-        "name": "setReport",
-        "outputs": [],
-        "payable": false,
-        "type": "function",
-        "stateMutability": "nonpayable"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getReport",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "type": "function",
-        "stateMutability": "view"
-    }
+        
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_vehicleid",
+				"type": "string"
+			},
+			{
+				"name": "_price",
+				"type": "string"
+			},
+			{
+				"name": "_reading",
+				"type": "string"
+			},
+			{
+				"name": "_transferredto",
+				"type": "string"
+			}
+		],
+		"name": "setReportChange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getReportChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
 ]);
-    var ReportVehicle = ReportVehicleContract.at('0xcf5075c28a6b16d911984d2036f2a164c7e4ec25');
+    var ReportVehicle = ReportVehicleContract.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
     console.log(ReportVehicle);
 
     ReportVehicle.getReport(function(error, result){

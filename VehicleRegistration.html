@@ -54,68 +54,68 @@
         }
         web3.eth.defaultAccount = web3.eth.accounts[1];
         var VehicleContract = web3.eth.contract([
-    {
-        "constant": false,
-        "inputs": [
-            {
-                "name": "_driverId",
-                "type": "string"
-            },
-            {
-                "name": "_vehicleNo",
-                "type": "string"
-            },
-            {
-                "name": "_Address",
-                "type": "string"
-            },
-            {
-                "name": "_expirationDate",
-                "type": "string"
-            },
-            {
-                "name": "_renewalDate",
-                "type": "string"
-            }
-        ],
-        "name": "setVehicle",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "getVehicle",
-        "outputs": [
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            },
-            {
-                "name": "",
-                "type": "string"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    }
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getVehicleRegChange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_driverid",
+				"type": "string"
+			},
+			{
+				"name": "_vehicleNo",
+				"type": "string"
+			},
+			{
+				"name": "_Address",
+				"type": "string"
+			},
+			{
+				"name": "_expirationdate",
+				"type": "string"
+			},
+			{
+				"name": "_renewaldate",
+				"type": "string"
+			}
+		],
+		"name": "setVehicleRegChange",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
 ]);
-    var VehicleReg = VehicleContract.at('0xe7b14fb16a63551a6c47e45ae56762ae79160d77');
+    var VehicleReg = VehicleContract.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
     console.log(VehicleReg);
 
     VehicleReg.getVehicle(function(error, result){
