@@ -42,6 +42,8 @@
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script>
         if (typeof web3 !== 'undefined') {
@@ -50,8 +52,7 @@
             web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
         }
         web3.eth.defaultAccount = web3.eth.accounts[0];
-        var ReportVehicleContract = web3.eth.contract([
-        
+        var ReportVehicleContract = new web3.eth.Contract([
 	{
 		"constant": false,
 		"inputs": [
@@ -105,7 +106,7 @@
 		"type": "function"
 	}
 ]);
-    var ReportVehicle = ReportVehicleContract.at('0xA4A79044Bb6BE82D944bc1E826AB89F25208D18B');
+    var ReportVehicle = ReportVehicleContract.at('0xb3Eb94845e6A23963Eede620Df79ca01ff1d8a26');
     console.log(ReportVehicle);
 
     ReportVehicle.getReport(function(error, result){

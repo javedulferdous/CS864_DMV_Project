@@ -1,0 +1,105 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getDIRenewalChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_driverid",
+						"type": "string"
+					},
+					{
+						"name": "_driverName",
+						"type": "string"
+					},
+					{
+						"name": "_age",
+						"type": "string"
+					},
+					{
+						"name": "_dob",
+						"type": "string"
+					},
+					{
+						"name": "_city",
+						"type": "string"
+					},
+					{
+						"name": "_zip",
+						"type": "string"
+					}
+				],
+				"name": "setDriverInformation",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/DriverInformation.sol": "DriverInformation"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/DriverInformation.sol": {
+			"keccak256": "0x76e15d5a51d9f0a1584e393b241da16f01ab2872c4c2adccc8945f511c8f0077",
+			"urls": [
+				"bzzr://285db4c1316ed467f64b8ab70ef5a969a0b7f85dee1ed3666a6dbb9f19ed39a0"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,81 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getAddressChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_driverid",
+						"type": "string"
+					},
+					{
+						"name": "_oldadd",
+						"type": "string"
+					},
+					{
+						"name": "_newadd",
+						"type": "string"
+					}
+				],
+				"name": "setAddressChange",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/addresschange.sol": "AddressService"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/addresschange.sol": {
+			"keccak256": "0x2a1b211acfe8e2415b87a6f4a6b21c961ebf2639462505260d0972ea82671ea2",
+			"urls": [
+				"bzzr://5e1f414366dae7a359d63890af6d8a4ee6f5559a0a8c031c22b0760840ec6165"
+			]
+		}
+	},
+	"version": 1
+}

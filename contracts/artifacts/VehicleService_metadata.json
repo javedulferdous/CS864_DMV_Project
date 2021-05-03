@@ -1,0 +1,89 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getvehicleChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_vehicleId",
+						"type": "string"
+					},
+					{
+						"name": "_vehicleOdometer",
+						"type": "string"
+					},
+					{
+						"name": "_vehiclePrice",
+						"type": "string"
+					},
+					{
+						"name": "_vehicleTitle",
+						"type": "string"
+					}
+				],
+				"name": "setvehicleChange",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/sellvehicle.sol": "vehicleService"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/sellvehicle.sol": {
+			"keccak256": "0x6ae82b97c184e3a856e4638b87f13468709cb9dbd6cf6ca99493b96ca2ce52b6",
+			"urls": [
+				"bzzr://e9f21a65403bd38ae766861cd85e238bafcf08115297960b0f0a19373415dff9"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,89 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_vehicleid",
+						"type": "string"
+					},
+					{
+						"name": "_price",
+						"type": "string"
+					},
+					{
+						"name": "_reading",
+						"type": "string"
+					},
+					{
+						"name": "_transferredto",
+						"type": "string"
+					}
+				],
+				"name": "setReportChange",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getReportChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Report.sol": "ReportService"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Report.sol": {
+			"keccak256": "0x7a01f183141c3ae6afb3c92399ca74507dc17e951ea98fa44a8c5c539cb8f678",
+			"urls": [
+				"bzzr://b4dac6c37e75cd5843dae053c775375f60040e531a726230c0dad66e21461f63"
+			]
+		}
+	},
+	"version": 1
+}

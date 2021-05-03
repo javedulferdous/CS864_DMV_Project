@@ -1,0 +1,89 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"name": "_date",
+						"type": "string"
+					},
+					{
+						"name": "_place",
+						"type": "string"
+					},
+					{
+						"name": "_phone",
+						"type": "string"
+					}
+				],
+				"name": "setVitalRecordChange",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getVitalRecordChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/vitalRecord.sol": "VitalRecordService"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/vitalRecord.sol": {
+			"keccak256": "0x519b8fe2efbe52f561bed0521b8ea1ccd414a89e60fccd1f26d9c9c91cf5dd80",
+			"urls": [
+				"bzzr://67a381b6e1c886491e77de8241cb0470d00632a69004e3b96275951e04884783"
+			]
+		}
+	},
+	"version": 1
+}

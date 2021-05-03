@@ -1,0 +1,81 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_driverid",
+						"type": "string"
+					},
+					{
+						"name": "_expirationdate",
+						"type": "string"
+					},
+					{
+						"name": "_newdate",
+						"type": "string"
+					}
+				],
+				"name": "setDIRenewalChange",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getDIRenewalChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/DlRenewal.sol": "DIRenewalService"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/DlRenewal.sol": {
+			"keccak256": "0x26c10676586bfde8772fa8869deab0937b72a03c32870f1ee97ce8c33fc8d24a",
+			"urls": [
+				"bzzr://45156a9f3a51a47529edf4f314460c0580e03e653d2ab593f3599a480e04f415"
+			]
+		}
+	},
+	"version": 1
+}

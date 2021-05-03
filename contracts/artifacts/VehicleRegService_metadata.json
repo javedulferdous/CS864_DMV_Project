@@ -1,0 +1,97 @@
+{
+	"compiler": {
+		"version": "0.4.24+commit.e67f0147"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "getVehicleRegChange",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					},
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_driverid",
+						"type": "string"
+					},
+					{
+						"name": "_vehicleNo",
+						"type": "string"
+					},
+					{
+						"name": "_Address",
+						"type": "string"
+					},
+					{
+						"name": "_expirationdate",
+						"type": "string"
+					},
+					{
+						"name": "_renewaldate",
+						"type": "string"
+					}
+				],
+				"name": "setVehicleRegChange",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/VehicleRegistration.sol": "VehicleRegService"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/VehicleRegistration.sol": {
+			"keccak256": "0x654dac4d9e263eca648838ef5d2159ce1edb8ff6059a51904f2540350507e1fb",
+			"urls": [
+				"bzzr://4e2ba4f7907a0a47a6c5776c68a7d911ee3ea2f924a8f7d920947319dbe64c34"
+			]
+		}
+	},
+	"version": 1
+}
