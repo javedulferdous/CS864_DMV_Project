@@ -34,13 +34,13 @@
             <input id="newadd" class="form-control form-control-lg" type="text" placeholder="New Address">
         </div>
         <div class="input-group">
-        <button class="btn btn-primary btn-lg btn-block" type="submit" id="button">Submit</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" value="send" id="button" name="submit">Submit</button>
         </div>
     </div>
     <script type="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
     <script src="node_modules/web3/dist/web3.min.js"></script>
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script>
         if (typeof web3 !== 'undefined'){
             web3 = new Web3(web3.currentProvider);
@@ -48,8 +48,7 @@
             web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
         }
         web3.eth.defaultAccount = web3.eth.accounts[0];
-        var AddressChangeContract = new web3.eth.Contract([
-	{
+        var AddressChangeContract = new web3.eth.Contract([{
 		"constant": true,
 		"inputs": [],
 		"name": "getAddressChange",
@@ -93,11 +92,9 @@
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-]);
-    AddressChange = AddressChangeContract.at('0x3CA368EcfDeCb1DC833c588658A2268904dC62dA');
-    console.log(AddressChange);
-
-    AddressChange.getAddress(function(error, result){
+], AddressChange = "0x3CA368EcfDeCb1DC833c588658A2268904dC62dA",
+//the problem starts from here
+    AddressChange.getAddress = (function(error, result){
             if(!error)
                 {
                     $("#addresschange").html('Driver ID: '+result[0]+'.  '+'The old Address is: '+result[1]+'.  '+'The new address is: '+result[2]);
@@ -105,13 +102,15 @@
                 }
             else
                 console.log(error);
-        });
-        $("#button").click(function() {
-            alert("Address has been updated");
-            AddressChange.setAddress($("#driverid").val(), $("#oldadd").val(), $("#newadd").val());
-            document.location.reload();
-        });
-    </script>    
+        })
+);
+
+    $(".container").on("click", "#button", function(){
+    alert("Address has been updated");
+    .setAddress($("#driverid").val(), $("#oldadd").val(), $("#newadd").val());
+    document.location.reload();
+    });
+    </script>   
 
 </body>
 </html>
